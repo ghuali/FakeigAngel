@@ -20,7 +20,7 @@ val sugerencias = listOf<Sugerencias>(
     Sugerencias("Samuele", "imagenes/Samuele.jpg"),
 )
 val fotos = listOf<Fotos>(
-    Fotos("imagenes/publi1.jpg"),
+    Fotos("imagenes/Metaphor.jpg"),
     Fotos("imagenes/publi2.jpeg"),
 )
 val message = listOf<Message>(
