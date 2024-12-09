@@ -122,7 +122,7 @@ fun App() {
                         }
                     }
                 }
-                Text(text = "Publicidad", modifier = Modifier.padding(bottom = 8.dp))
+                Text(text = "fotos", modifier = Modifier.padding(bottom = 8.dp))
                 Card(modifier = Modifier.fillMaxWidth(), backgroundColor = Color.LightGray) {
                     Column(modifier = Modifier.padding(8.dp)) {
                         fotos.forEach { fotos ->
