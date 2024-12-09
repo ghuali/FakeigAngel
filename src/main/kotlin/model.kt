@@ -24,6 +24,6 @@ val fotos = listOf<Fotos>(
     Fotos("imagenes/publi2.jpeg"),
 )
 val message = listOf<Message>(
-    Message("Alvaro", "Me gustan el marvel rivals.", "imagenes/header.jpg", "imagenes/publicacion1.jpg"),
+    Message("Alvaro", "Me gusta el marvel rivals.", "imagenes/header.jpg", "imagenes/marvel-rivals-wq3mr.png"),
     Message("Andrei", "Fui a Japon gente.", "imagenes/Andrei.jpg", "imagenes/publicacion2.jpg"),
 )

@@ -20,80 +20,118 @@ import androidx.compose.ui.window.rememberWindowState
 @Composable
 @Preview
 fun App() {
-    Column(modifier = Modifier.padding(start = 15.dp, end = 15.dp)) {
-        Row() {
-            Text("Título", modifier = Modifier.padding(top = 20.dp), fontSize = TextUnit(value = 40f, type = TextUnitType.Sp))
+    Column(modifier = Modifier.fillMaxSize().padding(16.dp)) { // Usa fillMaxSize para ocupar toda la pantalla
+        Row(modifier = Modifier.fillMaxWidth()) {
+            Text(
+                "Título",
+                modifier = Modifier.padding(top = 16.dp),
+                fontSize = TextUnit(value = 40f, type = TextUnitType.Sp)
+            )
         }
-        Row() {
-            Text("Historias", modifier = Modifier.padding(top = 10.dp, start = 10.dp), fontSize = TextUnit(value = 15f, type = TextUnitType.Sp))
+        Row(modifier = Modifier.fillMaxWidth()) {
+            Text(
+                "Historias",
+                modifier = Modifier.padding(top = 16.dp),
+                fontSize = TextUnit(value = 15f, type = TextUnitType.Sp)
+            )
         }
-        Card(modifier = Modifier.fillMaxWidth()){
+        Card(modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)) {
             Row(modifier = Modifier.background(Color.LightGray)) {
                 historias.forEach { historias ->
-                    Column(modifier = Modifier.padding(10.dp)) {
+                    Column(modifier = Modifier.padding(8.dp)) {
                         Image(
                             painter = painterResource(resourcePath = historias.image),
                             contentDescription = "Foto",
-                            modifier = Modifier.size(width = 80.dp, height = 80.dp).clip(CircleShape)
+                            modifier = Modifier
+                                .size(80.dp)
+                                .clip(CircleShape)
                         )
-                        Column(modifier = Modifier.padding(start = 10.dp)) {
-                            Text(modifier = Modifier.padding(top = 5.dp), text = historias.name)
-                        }
+                        Text(
+                            text = historias.name,
+                            modifier = Modifier.padding(top = 4.dp)
+                        )
                     }
                 }
             }
         }
-        Row {
-            Column {
-                Text("Publicaciones", modifier = Modifier.padding(top = 10.dp), fontSize = TextUnit(value = 20f, type = TextUnitType.Sp))
-                Card(modifier = Modifier.fillMaxHeight().width(450.dp).padding(bottom = 10.dp), backgroundColor = Color.LightGray) {
-                    Column(modifier = Modifier.padding(10.dp)) {
+        Row(modifier = Modifier.fillMaxSize()) { // Usa fillMaxSize para ocupar el resto de la pantalla
+            Column(modifier = Modifier.weight(1f).padding(end = 8.dp)) {
+                Text(
+                    "Publicaciones",
+                    modifier = Modifier.padding(bottom = 8.dp),
+                    fontSize = TextUnit(value = 20f, type = TextUnitType.Sp)
+                )
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f),
+                    backgroundColor = Color.LightGray
+                ) {
+                    Column(modifier = Modifier.padding(8.dp)) {
                         message.forEach { message ->
-                            Column(modifier = Modifier.align(Alignment.CenterHorizontally)) {
+                            Column(modifier = Modifier.padding(vertical = 8.dp)) {
                                 Image(
                                     painter = painterResource(resourcePath = message.image2),
-                                    contentDescription = "Foto"
+                                    contentDescription = "Foto",
+                                    modifier = Modifier.fillMaxWidth().height(180.dp)
                                 )
-                                Row(modifier = Modifier.padding(bottom = 10.dp)) {
+                                Row(modifier = Modifier.padding(vertical = 8.dp)) {
                                     Image(
                                         painter = painterResource(resourcePath = message.image),
                                         contentDescription = "Foto",
-                                        modifier = Modifier.size(50.dp).padding(top = 5.dp).clip(CircleShape)
+                                        modifier = Modifier
+                                            .size(50.dp)
+                                            .clip(CircleShape)
                                     )
-                                    Text(modifier = Modifier.padding(top = 10.dp, start = 10.dp), text = message.name)
+                                    Text(
+                                        text = message.name,
+                                        modifier = Modifier.padding(start = 8.dp)
+                                    )
                                 }
-                                Text(modifier = Modifier.padding(bottom = 10.dp), text = message.message)
+                                Text(
+                                    text = message.message,
+                                    modifier = Modifier.padding(bottom = 8.dp)
+                                )
                             }
-
                         }
                     }
                 }
             }
-            Column {
-                Text(text = "Sugerencias")
-                Card(modifier = Modifier.width(450.dp).padding(bottom = 10.dp), backgroundColor = Color.LightGray) {
-                    Column(modifier = Modifier.padding(10.dp)) {
+            Column(modifier = Modifier.weight(1f).padding(start = 8.dp)) {
+                Text(text = "Sugerencias", modifier = Modifier.padding(bottom = 8.dp))
+                Card(
+                    modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp),
+                    backgroundColor = Color.LightGray
+                ) {
+                    Column(modifier = Modifier.padding(8.dp)) {
                         sugerencias.forEach { sugerencias ->
-                            Row{
+                            Row(modifier = Modifier.padding(vertical = 4.dp)) {
                                 Image(
                                     painter = painterResource(resourcePath = sugerencias.image),
                                     contentDescription = "Foto",
-                                    modifier = Modifier.size(50.dp).padding(top = 5.dp).clip(CircleShape)
+                                    modifier = Modifier
+                                        .size(50.dp)
+                                        .clip(CircleShape)
                                 )
-                                Text(text = sugerencias.name, modifier = Modifier.padding(top = 10.dp),
-                                    fontSize = TextUnit(value = 20f, type = TextUnitType.Sp))
+                                Text(
+                                    text = sugerencias.name,
+                                    modifier = Modifier.padding(start = 8.dp),
+                                    fontSize = TextUnit(value = 20f, type = TextUnitType.Sp)
+                                )
                             }
                         }
                     }
                 }
-                Text(text = "Fotos")
-                Card(modifier = Modifier.width(450.dp).padding(bottom = 10.dp), backgroundColor = Color.LightGray) {
-                    Row(modifier = Modifier.padding(10.dp)) {
+                Text(text = "Fotos", modifier = Modifier.padding(bottom = 8.dp))
+                Card(modifier = Modifier.fillMaxWidth(), backgroundColor = Color.LightGray) {
+                    Row(modifier = Modifier.padding(8.dp)) {
                         fotos.forEach { fotos ->
                             Image(
                                 painter = painterResource(resourcePath = fotos.image),
                                 contentDescription = "Foto",
-                                modifier = Modifier.size(50.dp).padding(top = 5.dp).clip(CircleShape)
+                                modifier = Modifier
+                                    .size(50.dp)
+                                    .clip(CircleShape)
                             )
                         }
                     }
@@ -112,3 +150,4 @@ fun main() = application {
         App()
     }
 }
+
