@@ -70,11 +70,6 @@ fun App() {
                     Column(modifier = Modifier.padding(8.dp)) {
                         message.forEach { message ->
                             Column(modifier = Modifier.padding(vertical = 8.dp)) {
-                                Image(
-                                    painter = painterResource(resourcePath = message.image2),
-                                    contentDescription = "Foto",
-                                    modifier = Modifier.fillMaxWidth().height(180.dp)
-                                )
                                 Row(modifier = Modifier.padding(vertical = 8.dp)) {
                                     Image(
                                         painter = painterResource(resourcePath = message.image),
@@ -88,6 +83,11 @@ fun App() {
                                         modifier = Modifier.padding(start = 8.dp)
                                     )
                                 }
+                                Image(
+                                    painter = painterResource(resourcePath = message.image2),
+                                    contentDescription = "Foto",
+                                    modifier = Modifier.height(180.dp).width(680.dp)
+                                )
                                 Text(
                                     text = message.message,
                                     modifier = Modifier.padding(bottom = 8.dp)
@@ -122,15 +122,15 @@ fun App() {
                         }
                     }
                 }
-                Text(text = "Fotos", modifier = Modifier.padding(bottom = 8.dp))
+                Text(text = "Publicidad", modifier = Modifier.padding(bottom = 8.dp))
                 Card(modifier = Modifier.fillMaxWidth(), backgroundColor = Color.LightGray) {
-                    Row(modifier = Modifier.padding(8.dp)) {
+                    Column(modifier = Modifier.padding(8.dp)) {
                         fotos.forEach { fotos ->
                             Image(
                                 painter = painterResource(resourcePath = fotos.image),
                                 contentDescription = "Foto",
                                 modifier = Modifier
-                                    .size(50.dp)
+                                    .size(200.dp)
                                     .clip(CircleShape)
                             )
                         }
@@ -150,4 +150,5 @@ fun main() = application {
         App()
     }
 }
+
 
